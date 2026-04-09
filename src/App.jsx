@@ -16,9 +16,9 @@ function App(){
 
   useEffect(() => {
   
-    fetch('http://jsonplaceholder.typicode.com/todos').then(response => response.json()).then(data => {setTasks(data);});
+    fetch('https://jsonplaceholder.typicode.com/todos').then(response => response.json()).then(data => {setTasks(data);});
 
-    fetch('http://jsonplaceholder.typicode.com/users').then(response => response.json()).then(data => {setUsers(data);
+    fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json()).then(data => {setUsers(data);
         console.log("Изтеглени потребители:", data); });
 
   }, []);

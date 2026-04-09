@@ -86,7 +86,11 @@ function App(){
           <ul>
             {VisibleP.map(t => (
               <li key={t.id} className="item">
-                <span>{t.title}</span>
+
+                <div className="task-info">
+                  <span>{t.title}</span>
+                </div>
+
                 <button onClick={() => moveTask(t.id)}>Complete</button>
               </li>
             ))}
@@ -113,7 +117,11 @@ function App(){
             {VisibleD.map(t => (
               <li key={t.id} className="item">
                 <div>
+
+                 <div className="task-info">
                   <span>{t.title}</span>
+                </div>
+
                   <br />
                   {t.date && (
                     <small className="date-text">

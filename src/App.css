@@ -106,3 +106,9 @@ button:hover {
 .load-more-btn:hover {
   background-color: #5a6268;
 }
+
+.task-info {
+  text-align: left;
+  flex: 1;
+  padding-right: 15px;
+}

@@ -1,6 +1,8 @@
 import { useState} from "react";
 import { useEffect } from "react";
 import './App.css';
+import Footer from "./Footer.jsx";
+import About from "./About.jsx";
 
 function App(){
   
@@ -11,6 +13,7 @@ function App(){
   const [dateSort, setDateSort] = useState('desc');
   const [PLimit, setPLimit] = useState(10);
   const [DLimit, setDLimit] = useState(10);
+  const [page, setPage] = useState("task")
 
   
 
@@ -56,10 +59,12 @@ function App(){
   return (
 
     <div> 
-      <h1 className="title" >Todo App</h1>
+      <h1 className="titleB" >Todo App</h1>
 
+      {page === "task" ? (
+        <>
      <div className="filter-div">
-        <label className="filter-label">User: </label>
+        <label className="titleB">User: </label>
         <select className="filter-select" value={user} onChange={(e) => setUser(e.target.value)}>
           <option value="all">All Usars</option>
          
@@ -69,13 +74,14 @@ function App(){
       </div>
 
       <div className="main">
+        
        {/* left side */}
         <div className= "side">
-          <h2>Pending: </h2>
+          <h2 className="title">Pending: <span className="count" >{pending.length}</span></h2>
 
         <div className="sort-div">
 
-          <label>Sort: </label>
+          <label className="title">Sort: </label>
           
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
               <option value="asc">Title (A-Z)</option>
@@ -103,10 +109,10 @@ function App(){
         
         {/* right side */}
         <div className="side">
-          <h2>Completed: </h2>
+          <h2 className="title">Completed: <span className="count" >{done.length}</span> </h2>
 
           <div className="sort-div">
-            <label>Sort: </label>
+            <label className="title">Sort: </label>
             <select value={dateSort} onChange={(e) => setDateSort(e.target.value)}>
               <option value="desc">Date (New-Old)</option>
               <option value="asc">Date (Old-New)</option>
@@ -138,9 +144,14 @@ function App(){
               <button className="load-more-btn" onClick={() =>setDLimit(DLimit + 10)}>Load more</button>
             )}
 
-
         </div>
       </div>
+      </>
+      ) : (
+        <About />
+      )}
+      <Footer page={page} setPage={setPage} />
+        
     </div>
   );
 }

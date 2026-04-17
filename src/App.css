@@ -10,8 +10,8 @@ body {
   background-color: #ffffff;
   border-bottom: 1px solid #e2e8f0;
   padding: 20px 0;
-  text-align: center; /* Центрира заглавието */
-  margin-bottom: 30px;
+  text-align: center; 
+  margin-bottom: 20px;
 }
 
 .header-title {
@@ -33,7 +33,7 @@ body {
 .titleB {
   font-weight: bold;
   margin-right: 10px;
-  color: #ccc;
+  color: #0f172a;
 }
 
 
@@ -47,14 +47,15 @@ body {
   justify-content: center;
   gap: 15px;
   max-width: 500px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 20px auto;
 }
 
 .filter-select {
   padding: 8px 15px;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
-  background-color: #f1f5f9;
+  background-color:  rgba(212, 215, 218, 0.5);;
+  color: #0f172a;
   font-weight: bold;
   cursor: pointer;
 

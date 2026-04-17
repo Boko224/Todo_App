@@ -59,7 +59,9 @@ function App(){
   return (
 
     <div> 
-      <h1 className="titleB" >Todo App</h1>
+      <header className="header">
+        <h1 className="header-title" >Todo App</h1>
+      </header>
 
       {page === "task" ? (
         <>
@@ -77,6 +79,7 @@ function App(){
         
        {/* left side */}
         <div className= "side">
+         <div className="side-header"> 
           <h2 className="title">Pending: <span className="count" >{pending.length}</span></h2>
 
         <div className="sort-div">
@@ -87,6 +90,7 @@ function App(){
               <option value="asc">Title (A-Z)</option>
               <option value="desc">Title (Z-A)</option>
             </select>
+        </div>
         </div>
 
           <ul>
@@ -109,7 +113,8 @@ function App(){
         
         {/* right side */}
         <div className="side">
-          <h2 className="title">Completed: <span className="count" >{done.length}</span> </h2>
+          <div className="side-header">
+            <h2 className="title">Completed: <span className="count" >{done.length}</span> </h2>
 
           <div className="sort-div">
             <label className="title">Sort: </label>
@@ -118,7 +123,7 @@ function App(){
               <option value="asc">Date (Old-New)</option>
             </select>
           </div>
-
+          </div>
          <ul>
             {VisibleD.map(t => (
               <li key={t.id} className="item">

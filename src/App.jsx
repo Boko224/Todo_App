@@ -19,7 +19,20 @@ function App(){
 
   useEffect(() => {
   
-    fetch('https://jsonplaceholder.typicode.com/todos').then(response => response.json()).then(data => {setTasks(data);});
+    fetch('https://jsonplaceholder.typicode.com/todos').then(response => response.json()).then(data => {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayTimestamp = yesterday.getTime();
+
+        const updatedTasks = data.map(task => {
+          if (task.completed) {
+            return { ...task, date: yesterdayTimestamp };
+          }
+          return task;
+        });
+
+        setTasks(updatedTasks);
+      });
 
     fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json()).then(data => {setUsers(data);
         console.log("Изтеглени потребители:", data); });
@@ -127,13 +140,12 @@ function App(){
          <ul>
             {VisibleD.map(t => (
               <li key={t.id} className="item">
-                <div>
+                <div className="data-button">
 
                  <div className="task-info">
                   <span>{t.title}</span>
                 </div>
-
-                  <br />
+                  
                   {t.date && (
                     <small className="date-text">
                       Completed on: {new Date(t.date).toLocaleDateString()}

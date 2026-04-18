@@ -140,6 +140,7 @@ ul {
 
 .side:nth-child(2) .item {
   background-color: #ffffff; 
+  align-items: flex-end;
 }
 
 .task-info {
@@ -160,6 +161,11 @@ ul {
   font-size: 0.85em;
   display: block;
   margin-top: 5px;
+  text-align: left;
+}
+
+.data-button {
+  flex: 1;
 }
 
 
